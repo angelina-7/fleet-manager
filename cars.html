@@ -25,9 +25,9 @@
             <button class="action new">Add New Car</button>
         </section>
 
-        <section id="new-car" class="editor" style="display: none;">
+        <section class="editor" style="display: none;">
             <h3>New Car</h3>
-            <form class="align">
+            <form id="new-car" class="align">
                 <label>
                     <span>Make</span>
                     <input type="text" name="make">
@@ -66,15 +66,15 @@
                 </label>
 
                 <div>
-                    <button class="action confirm">Add Car</button>
-                    <button class="action cancel">Cancel</button>
+                    <button type="submit" class="action confirm">Add Car</button>
+                    <button type="reset" class="action cancel">Cancel</button>
                 </div>
             </form>
         </section>
 
-        <section id="edit-car" class="editor" style="display: none;">
+        <section class="editor" style="display: none;">
             <h3>Edit Car</h3>
-            <form class="align">
+            <form id="edit-car" class="align">
                 <label>
                     <span>Make</span>
                     <input type="text" name="make">
@@ -113,8 +113,8 @@
                 </label>
 
                 <div>
-                    <button class="action confirm">Save Car</button>
-                    <button class="action cancel">Cancel</button>
+                    <button type="submit" class="action confirm">Save Car</button>
+                    <button type="reset" class="action cancel">Cancel</button>
                 </div>
             </form>
         </section>

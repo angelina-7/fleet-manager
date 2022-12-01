@@ -25,9 +25,9 @@
             <button class="action new">Add New Truck</button>
         </section>
 
-        <section id="new-truck" class="editor" style="display: none;">
+        <section class="editor" style="display: none;">
             <h3>New Truck</h3>
-            <form class="align">
+            <form id="new-truck" class="align">
                 <label>
                     <span>Make</span>
                     <input type="text" name="make">
@@ -58,15 +58,15 @@
                 </label>
 
                 <div>
-                    <button class="action confirm">Add Car</button>
-                    <button class="action cancel">Cancel</button>
+                    <button type="submit" class="action confirm">Add Car</button>
+                    <button type="reset" class="action cancel">Cancel</button>
                 </div>
             </form>
         </section>
 
-        <section id="edit-truck" class="editor" style="display: none;">
+        <section class="editor" style="display: none;">
             <h3>Edit Truck</h3>
-            <form class="align">
+            <form id="edit-truck" class="align">
                 <label>
                     <span>Make</span>
                     <input type="text" name="make">
@@ -97,8 +97,8 @@
                 </label>
 
                 <div>
-                    <button class="action confirm">Save Truck</button>
-                    <button class="action cancel">Cancel</button>
+                    <button type="submit" class="action confirm">Save Truck</button>
+                    <button type="reset" class="action cancel">Cancel</button>
                 </div>
             </form>
         </section>
