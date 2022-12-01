@@ -1,11 +1,17 @@
-export function displayAddNew(name: string) {
-    const newBtn = document.querySelector('.new');
-    newBtn.addEventListener('click', displayNewForm);
+export class Editor {
+    private newBtn: HTMLButtonElement;
+    private form: HTMLFormElement;
 
-    function displayNewForm() {
-        const newForm = document.getElementById(`new-${name}`);
-        newForm.style.display = "block";
-
-        newBtn.parentElement.style.display = "none"
+    constructor(startingPoint: string, formId: string) {
+        this.newBtn = document.querySelector(startingPoint);
+        this.form = document.getElementById(formId) as HTMLFormElement;
     }
+
+    displayForm() {
+        this.newBtn.addEventListener('click', () => {
+            this.form.style.display = "block";
+            this.newBtn.parentElement.style.display = "none";
+        });
+    }
+
 }

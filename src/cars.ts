@@ -1,3 +1,5 @@
-import { displayAddNew } from "./views/Editor";
+import { ADD_NEW_BTN } from "./util";
+import { Editor } from "./views/Editor";
 
-displayAddNew('car');
+const newCarForm = new Editor(ADD_NEW_BTN, 'new-car');
+newCarForm.displayForm();
