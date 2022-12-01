@@ -9,6 +9,6 @@ export interface Storage {
     getById(collectionName:string, id: RecordId): Promise<Record>;
     create(collectionName: string, data: any): Promise<Record>;
     update(collectionName: string, id: RecordId, data: any): Promise<Record>;
-    delete(collectionName:string, id: RecordId): Promise<boolean>;
+    delete(collectionName:string, id: RecordId): Promise<void>;
 
 }
