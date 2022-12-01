@@ -1,12 +1,12 @@
 import { generateId } from "../util";
-import { Record, Storage } from "./Storage";
+import { Record, RecordId, Storage } from "./Storage";
 
 //Design pattern Facade
 export class LocalStorage implements Storage {
     async getAll(collectionName: string): Promise<Record[]> {
         return JSON.parse(localStorage.getItem(collectionName) || null) || [];
     }
-    async getById(collectionName: string, id: string): Promise<Record> {
+    async getById(collectionName: string, id: RecordId): Promise<Record> {
         const items = await this.getAll(collectionName);
         const result = items.find(i => i.id == id);
         return result;
@@ -19,7 +19,7 @@ export class LocalStorage implements Storage {
 
         return record;
     }
-    async update(collectionName: string, id: string, data: any): Promise<Record> {
+    async update(collectionName: string, id: RecordId, data: any): Promise<Record> {
         const items = await this.getAll(collectionName);
         const index = items.findIndex(i => i.id == id);
         if(index == -1){
@@ -31,7 +31,7 @@ export class LocalStorage implements Storage {
 
         return record;
     }
-    async delete(collectionName: string, id: string): Promise<void> {
+    async delete(collectionName: string, id: RecordId): Promise<void> {
         const items = await this.getAll(collectionName);
         const index = items.findIndex(i => i.id == id);
         if(index == -1){

@@ -1,7 +1,7 @@
-type RecordId = string
+export type RecordId = string;
 
-export type Record = {
-    id: string
+export interface Record {
+    id: RecordId
 };
 
 export interface Storage {
