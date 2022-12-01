@@ -1,10 +1,3 @@
-const newTruckBtn = document.querySelector('.new');
+import { displayAddNew } from "./views/Editor";
 
-newTruckBtn.addEventListener('click', displayNewTForm);
-
-function displayNewTForm () {
-    const newTruckForm = document.getElementById('new-truck');
-    newTruckForm.style.display = "block";
-
-    newTruckBtn.parentElement.style.display = "none"
-}
+displayAddNew('truck');
