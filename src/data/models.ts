@@ -1,25 +1,25 @@
-import { RecordId } from "./Storage";
+import { Record, RecordId } from "./Storage";
 
 export enum CarBodyType {
-    Sedan = 'sedan',
-    SUV = 'suv',
-    Hatchback = 'hatchback'
+    sedan = 'Sedan',
+    suv = 'SUV',
+    hatchback = 'Hatchback'
 }
 
 export enum TruckCargoType {
-    Box = 'box',
-    Flatbed = 'flatbed',
-    Van = 'van'
+    box = 'Box',
+    flatbed = 'Flatbed',
+    van = 'Van'
 }
 
-export enum Transmision {
-    Manual = 'manual',
-    Automatic = 'automatic'
+export enum Transmission {
+    manual = 'Manual',
+    automatic = 'Automatic'
 }
 
-export abstract class Vehicle {
-    public id?: RecordId
+export abstract class Vehicle implements Record{
     constructor(
+        public id: RecordId,
         public make: string,
         public model: string,
         public rentalPrice: number,
@@ -29,20 +29,22 @@ export abstract class Vehicle {
 
 export class Car extends Vehicle {
     constructor(
+        id: RecordId,
         make: string,
         model: string,
         rentalPrice: number,
         rentedTo: string | null,
         public bodyType: CarBodyType,
         public numberOfSeats: number,
-        public transmission: Transmision,
+        public transmission: Transmission,
     ) {
-        super(make, model, rentalPrice, rentedTo);
+        super(id, make, model, rentalPrice, rentedTo);
     }
 }
 
 export class Truck extends Vehicle {
     constructor(
+        id: RecordId,
         make: string,
         model: string,
         rentalPrice: number,
@@ -50,6 +52,6 @@ export class Truck extends Vehicle {
         public cargoType: TruckCargoType,
         public capacity: number,
     ) {
-        super(make, model, rentalPrice, rentedTo);
+        super(id, make, model, rentalPrice, rentedTo);
     }
 }

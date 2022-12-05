@@ -25,3 +25,4 @@ export function el(type: string, attrtibutes?: object, ...content: DomContent[])
 
 export const tr: ElementFactory<HTMLTableRowElement> = el.bind(null, 'tr');
 export const td: ElementFactory<HTMLTableCellElement> = el.bind(null, 'td');
+export const button: ElementFactory<HTMLButtonElement> = el.bind(null, 'button');
