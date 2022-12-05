@@ -1,4 +1,4 @@
-type CallbackFn = (data: object) => any 
+type CallbackFn = (data: object) => any
 
 export class Editor {
     private newBtn: HTMLButtonElement;
@@ -10,6 +10,7 @@ export class Editor {
         this.newBtn = document.querySelector(startingPoint);
         this.form = document.getElementById(formId) as HTMLFormElement;
         this.form.addEventListener('submit', this.onSubmit.bind(this))
+        this.form.addEventListener('reset', this.onCancel.bind(this))
     }
 
     displayForm() {
@@ -24,9 +25,19 @@ export class Editor {
         const formData = new FormData(this.form);
         const data = Object.fromEntries(formData);
 
-        this.callback(data);
+        if (Object.values(data).every(x => x)) {
+            this.callback(data);
 
+            this.form.reset();
+            this.form.parentElement.style.display = "none";
+            this.newBtn.parentElement.style.display = "block";
+        }
+    }
+
+    private onCancel(event) {
         this.form.reset();
+        this.form.parentElement.style.display = "none";
+        this.newBtn.parentElement.style.display = "block";
     }
 
 
