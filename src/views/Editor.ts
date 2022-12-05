@@ -21,16 +21,12 @@ export class Editor {
     }
 
     private onSubmit(event: SubmitEvent) {
-        event.preventDefault();
         const formData = new FormData(this.form);
         const data = Object.fromEntries(formData);
 
         if (Object.values(data).every(x => x)) {
             this.callback(data);
 
-            this.form.reset();
-            this.form.parentElement.style.display = "none";
-            this.newBtn.parentElement.style.display = "block";
         }
     }
 
