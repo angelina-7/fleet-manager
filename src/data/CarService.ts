@@ -42,7 +42,7 @@ export class CarService extends DataService<Car, CarData>{
             data.make,
             data.model,
             Number(data.rentalPrice),
-            data.rentedTo,
+            (data.rentedTo || null),
             CarBodyType[data.bodyType],
             Number(data.numberOfSeats),
             Transmission[data.transmission]
@@ -50,5 +50,4 @@ export class CarService extends DataService<Car, CarData>{
 
         return result;
     }
-
 }

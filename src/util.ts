@@ -30,7 +30,7 @@ export function hidrate(tbody: HTMLTableSectionElement, data: Vehicle[]) {
         } else if (vehicle instanceof Truck) {
             fragment.append(
                 td({}, vehicle.cargoType),
-                td({}, vehicle.capacity.toString()),
+                td({}, `${vehicle.capacity} tons`),
             );
         }
 
