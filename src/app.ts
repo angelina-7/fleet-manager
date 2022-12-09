@@ -13,8 +13,8 @@ const tbody = document.querySelector('tbody');
 start()
 
 async function start(){
-    // const cars = await carService.getAll();
-    // const trucks = await truckService.getAll();
-    // const vehicles: Vehicle[] = [...cars, ...trucks];
-    // hidrate(tbody, vehicles);
+    const cars = await carService.getAll();
+    const trucks = await truckService.getAll();
+    const vehicles: Vehicle[] = [...cars, ...trucks];
+    hidrate(tbody, vehicles, true);
 }

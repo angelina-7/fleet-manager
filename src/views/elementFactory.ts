@@ -1,8 +1,8 @@
 type DomContent = string | Node;
 
-type ElementFactory<T extends HTMLElement> = (attrtibutes?: object, ...content: DomContent[]) => T
+type ElementFactory<T extends HTMLElement> = (attrtibutes: object, ...content: DomContent[]) => T
 
-export function el(type: string, attrtibutes?: object, ...content: DomContent[]) {
+export function el(type: string, attrtibutes: object, ...content: DomContent[]) {
     const result = document.createElement(type);
 
     if (attrtibutes) {
@@ -25,4 +25,5 @@ export function el(type: string, attrtibutes?: object, ...content: DomContent[])
 
 export const tr: ElementFactory<HTMLTableRowElement> = el.bind(null, 'tr');
 export const td: ElementFactory<HTMLTableCellElement> = el.bind(null, 'td');
+export const a: ElementFactory<HTMLLinkElement> = el.bind(null, 'a');
 export const button: ElementFactory<HTMLButtonElement> = el.bind(null, 'button');
