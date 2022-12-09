@@ -36,7 +36,7 @@ async function getCurrentRecord(row) {
 }
 
 function deleteCurrentRecord(row) {
-    if (confirm("Are you sure you want to DELETE this Vehicle?")) {
+    if (confirm("Are you sure you want to DELETE this Car?")) {
         carService.delete(row.id);
     }
 }

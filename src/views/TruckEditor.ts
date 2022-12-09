@@ -1,10 +1,10 @@
 import { CallbackFn, Editor } from "./Editor";
 
 const NEW_BTN = '.new';
-const NEW_FORM = 'new-car';
-const EDIT_FORM = 'edit-car';
+const NEW_FORM = 'new-truck';
+const EDIT_FORM = 'edit-truck';
 
-export class CarEditor extends Editor {
+export class TruckEditor extends Editor {
 
     constructor(onNew: CallbackFn, onEdit: CallbackFn) {
         super(NEW_BTN, NEW_FORM, EDIT_FORM, onNew, onEdit);
@@ -20,9 +20,8 @@ export class CarEditor extends Editor {
         (this.editForm.querySelector('[name="make"]') as HTMLInputElement).value = record.make;
         (this.editForm.querySelector('[name="model"]') as HTMLInputElement).value = record.model;
         (this.editForm.querySelector('[name="rentalPrice"]') as HTMLInputElement).value = record.rentalPrice;
-        (this.editForm.querySelector('[name="bodyType"]') as HTMLSelectElement).value = record.bodyType.toLowerCase();
-        (this.editForm.querySelector('[name="numberOfSeats"]') as HTMLInputElement).value = record.numberOfSeats.toString();
-        (this.editForm.querySelector('[name="transmission"]') as HTMLSelectElement).value = record.transmission.toLowerCase();
+        (this.editForm.querySelector('[name="cargoType"]') as HTMLSelectElement).value = record.cargoType.toLowerCase();
+        (this.editForm.querySelector('[name="capacity"]') as HTMLInputElement).value = record.capacity.toString();
 
     }
 }
