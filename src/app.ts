@@ -15,6 +15,10 @@ start()
 async function start(){
     const cars = await carService.getAll();
     const trucks = await truckService.getAll();
-    const vehicles: Vehicle[] = [...cars, ...trucks];
+    const vehicles = sort([...cars, ...trucks]);
     hidrate(tbody, vehicles, true);
+}
+
+function sort(vehicles: Vehicle[]): Vehicle[] {
+    return vehicles.sort((a,b) => a.make.charCodeAt(0) - b.make.charCodeAt(0));
 }
