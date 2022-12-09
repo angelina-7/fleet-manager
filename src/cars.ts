@@ -1,7 +1,7 @@
 import { CarService } from "./data/CarService";
 import { LocalStorage } from "./data/LocalStorage";
-import { ADD_NEW_BTN, hidrate } from "./util";
-import { Editor } from "./views/Editor";
+import { hidrate } from "./util";
+import { CarEditor } from "./views/CarEditor";
 
 const storage = new LocalStorage();
 const carService = new CarService(storage);
@@ -16,11 +16,9 @@ async function start() {
     const cars = await carService.getAll()
     hidrate(tbody, cars);
 
-    const newCarForm = new Editor(ADD_NEW_BTN, 'new-car', onNewRecord);
-    newCarForm.displayForm();
-
-    const editCarForm = new Editor(ADD_NEW_BTN, 'edit-car', onEditRecord);
-    editCarForm.displayEditForm(tbody, editRow, deleteRow);
+    const editor = new CarEditor(onNewRecord, onEditRecord);
+    editor.displayNewForm();
+    editor.displayEditForm(tbody, getCurrentRecord, deleteCurrentRecord);
 }
 
 async function onNewRecord(data) {
@@ -31,15 +29,14 @@ async function onEditRecord(data) {
     await carService.update(currId, data);
 }
 
-async function editRow(row) {
+async function getCurrentRecord(row) {
     const car = await carService.getById(row.id);
     currId = row.id;
     return car;
 }
 
-function deleteRow(row) {
+function deleteCurrentRecord(row) {
     if (confirm("Are you sure you want to DELETE this Vehicle?")) {
         carService.delete(row.id);
-        row.remove();
     }
 }
