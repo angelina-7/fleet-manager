@@ -45,6 +45,7 @@ export function hidrate(tbody: HTMLTableSectionElement, data: Vehicle[]) {
                 deleteBtn,
             )
         );
+        vehicleRow.id = vehicle.id;
 
         tbody.appendChild(vehicleRow);
     }
