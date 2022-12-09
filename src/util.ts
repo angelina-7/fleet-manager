@@ -59,7 +59,7 @@ export function hidrate(tbody: HTMLTableSectionElement, data: Vehicle[], index =
                 td({}, vehicle.model),
                 td({}, `\$${vehicle.rentalPrice}/day`),
                 td({}, `${vehicle.rentedTo ? 'Rented' : 'Available'}`),
-                td({}, a({ href: 'details.html' }, 'Show Details'))
+                td({}, a({ href: `details.html?${vehicleType}=${vehicle.id}` }, 'Show Details'))
             );
         }
 

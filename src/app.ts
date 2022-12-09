@@ -1,7 +1,7 @@
-import { CarService } from "./data/CarService";
 import { LocalStorage } from "./data/LocalStorage";
-import { Vehicle } from "./data/models";
+import { CarService } from "./data/CarService";
 import { TruckService } from "./data/TruckService";
+import { Vehicle } from "./data/models";
 import { hidrate } from "./util";
 
 const storage = new LocalStorage();
